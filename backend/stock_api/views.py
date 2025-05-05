@@ -131,9 +131,10 @@ from rest_framework.decorators import api_view
 from .models import Stock
 from .indicators import indicators  # Import predefined indicators with descriptions
 from groq import Groq
+import os
 
 # Initialize the Groq client (replace with your actual API key)
-client = Groq(api_key="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")  # ⚠️ Replace with your Groq API key
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))  # ⚠️ Replace with your Groq API key
 
 @api_view(['POST'])
 def recommend_stocks(request):
